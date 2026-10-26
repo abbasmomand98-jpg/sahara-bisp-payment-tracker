@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahara — BISP Payment Tracker (UX Concept)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">S</span> Sahara</div>
+  <p class="tagline">BISP Payment Tracker · UX Concept</p>
+</header>
+
+<div class="notice" role="note">
+  <strong>Unofficial UX concept — sample data only.</strong>
+  Every beneficiary, centre, amount and complaint shown here is invented sample data
+  for demonstrating the design. Sahara is not a government app and is not connected
+  to BISP. Never enter a real CNIC number here — the demo uses sample IDs like
+  <code>SAH-2026-4812</code>.
+</div>
+
+<nav class="tabs" aria-label="Sections">
+  <button class="tab active" data-tab="status">Payment Status</button>
+  <button class="tab" data-tab="centres">Payment Centres</button>
+  <button class="tab" data-tab="cutguard">Cut Guard</button>
+  <button class="tab" data-tab="complaints">Complaint Tracker</button>
+  <button class="tab" data-tab="docs">Document Checklist</button>
+</nav>
+
+<main>
+  <!-- STATUS -->
+  <section id="tab-status" class="panel active">
+    <h2>Check your payment status</h2>
+    <p class="hint">Try a sample beneficiary ID: <button class="sample-id" data-id="SAH-2026-4812">SAH-2026-4812</button>
+      <button class="sample-id" data-id="SAH-2026-2077">SAH-2026-2077</button>
+      <button class="sample-id" data-id="SAH-2026-9930">SAH-2026-9930</button></p>
+    <label for="beneficiary-id">Sample beneficiary ID</label>
+    <div class="row">
+      <input id="beneficiary-id" type="text" placeholder="e.g. SAH-2026-4812" autocomplete="off">
+      <button id="lookup-btn" class="btn">Check status</button>
+    </div>
+    <p id="lookup-error" class="error" hidden></p>
+    <div id="status-card" class="card" hidden>
+      <p class="label">INSTALLMENT · OCT–DEC 2026</p>
+      <p class="big" id="status-amount"></p>
+      <p id="status-state" class="state"></p>
+      <p id="status-centre"></p>
+      <h3>Installment timeline</h3>
+      <ul id="status-timeline" class="timeline"></ul>
+      <p class="muted" id="status-next"></p>
+    </div>
+  </section>
+
+  <!-- CENTRES -->
+  <section id="tab-centres" class="panel">
+    <h2>Find the right payment centre</h2>
+    <p class="hint">Sample centres with sample queue times. Check the queue before you leave home.</p>
+    <label for="centre-search">Search a centre or city</label>
+    <input id="centre-search" type="text" placeholder="e.g. Peshawar, Saddar…" autocomplete="off">
+    <label for="city-filter">Filter by city</label>
+    <select id="city-filter">
+      <option value="All">All cities</option>
+      <option value="Peshawar">Peshawar</option>
+      <option value="Lahore">Lahore</option>
+      <option value="Karachi">Karachi</option>
+      <option value="Rawalpindi">Rawalpindi</option>
+      <option value="Quetta">Quetta</option>
+      <option value="Multan">Multan</option>
+    </select>
+    <p id="centre-count" class="muted"></p>
+    <div id="centre-list" class="cards"></div>
+  </section>
+
+  <!-- CUT GUARD -->
+  <section id="tab-cutguard" class="panel">
+    <h2>Cut Guard — did you get it all?</h2>
+    <p class="hint">Your installment must arrive in full. If an agent kept any part of it, that cut is illegal.</p>
+    <label for="due-amount">Amount due (Rs)</label>
+    <input id="due-amount" type="number" min="0" value="13500">
+    <label for="received-amount">Amount you actually received (Rs)</label>
+    <input id="received-amount" type="number" min="0" value="12500">
+    <button id="cutguard-btn" class="btn">Check for a deduction</button>
+    <p id="cutguard-error" class="error" hidden></p>
+    <div id="cutguard-result" class="card" hidden>
+      <p id="cutguard-message"></p>
+      <p id="cutguard-deduction" class="big"></p>
+      <div id="cutguard-report" hidden>
+        <p>What to do now: note the centre, date and agent's name, keep your receipt, and file a report.</p>
+        <button id="report-btn" class="btn danger">Report this deduction</button>
+        <p id="report-receipt" class="receipt" hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLAINTS -->
+  <section id="tab-complaints" class="panel">
+    <h2>Track your complaints</h2>
+    <p class="hint">Reports you file here are saved on this device only (localStorage) — this is a design demo, not a real complaint channel.</p>
+    <div id="complaint-list" class="cards"></div>
+    <p id="complaint-empty" class="muted" hidden>No complaints yet. File one from Cut Guard to see it here.</p>
+  </section>
+
+  <!-- DOCS -->
+  <section id="tab-docs" class="panel">
+    <h2>Document checklist</h2>
+    <p class="hint">Tick off what you already have. Your checklist is saved on this device.</p>
+    <ul id="doc-list" class="checklist"></ul>
+    <p id="doc-progress" class="muted"></p>
+  </section>
+</main>
+
+<footer>
+  <p>Sahara is an unofficial UX concept built for learning. All data is sample data.
+    For real BISP information, use the official BISP channels.</p>
+  <p>Designed and built by Abbas Momand · <a href="mailto:abbasmomand98@gmail.com">abbasmomand98@gmail.com</a></p>
+</footer>
+
+<script src="data.js"></script>
+<script src="logic.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

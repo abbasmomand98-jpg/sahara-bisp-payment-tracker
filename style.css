@@ -1,0 +1,132 @@
+/* Sahara — BISP Payment Tracker (UX Concept)
+   Deep purple #6B21A8 on a neutral off-white base, generous whitespace. */
+:root {
+  --purple: #6B21A8;
+  --purple-dark: #4A1560;
+  --purple-deep: #3B0D4F;
+  --purple-tint: #F3E8FF;
+  --purple-wash: #FAF5FF;
+  --base: #FAF9FB;
+  --ink: #1A1521;
+  --grey: #6A6474;
+  --grey-light: #AEA8B4;
+  --line: #E8E5EC;
+  --amber: #B45309;
+  --amber-tint: #FEF3C7;
+  --red: #C8283C;
+  --red-tint: #FDECEC;
+  --green: #15803D;
+  --green-tint: #DCFCE7;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--base);
+  color: var(--ink);
+  line-height: 1.55;
+}
+
+.topbar {
+  background: var(--purple-deep);
+  color: #fff;
+  padding: 1.4rem 1.2rem 1.1rem;
+}
+.brand { font-size: 1.6rem; font-weight: 800; display: flex; align-items: center; gap: .6rem; }
+.logo {
+  display: inline-flex; width: 2.4rem; height: 2.4rem; border-radius: .7rem;
+  background: var(--purple); color: #fff; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.tagline { margin: .3rem 0 0; color: #E9D5FF; }
+
+.notice {
+  background: var(--purple-tint);
+  border-left: 5px solid var(--purple);
+  margin: 1rem auto;
+  padding: .9rem 1.1rem;
+  max-width: 860px;
+  border-radius: 0 .8rem .8rem 0;
+  font-size: .95rem;
+}
+.notice code { background: #fff; padding: .1rem .35rem; border-radius: .3rem; }
+
+.tabs {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  max-width: 860px; margin: 0 auto; padding: 0 1rem;
+}
+.tab {
+  border: 2px solid var(--line); background: #fff; border-radius: 999px;
+  padding: .5rem 1rem; font-size: .95rem; cursor: pointer; font-weight: 600;
+}
+.tab.active { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+main { max-width: 860px; margin: 0 auto; padding: 1.2rem 1rem 3rem; }
+.panel { display: none; }
+.panel.active { display: block; }
+h2 { font-size: 1.5rem; margin: .4rem 0 .3rem; }
+.hint { color: var(--grey); margin-top: 0; }
+.muted { color: var(--grey); }
+
+label { display: block; font-weight: 600; margin: 1rem 0 .3rem; }
+input, select {
+  width: 100%; padding: .7rem .9rem; font-size: 1rem;
+  border: 2px solid var(--line); border-radius: .7rem; background: #fff;
+}
+input:focus, select:focus { outline: none; border-color: var(--purple); }
+.row { display: flex; gap: .6rem; }
+.row input { flex: 1; }
+
+.btn {
+  background: var(--purple); color: #fff; border: none; border-radius: .7rem;
+  padding: .7rem 1.3rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+  margin-top: .6rem;
+}
+.btn:hover { background: var(--purple-dark); }
+.btn.danger { background: var(--red); }
+.sample-id {
+  background: var(--purple-tint); border: 1px solid var(--purple); color: var(--purple-dark);
+  border-radius: 999px; padding: .2rem .7rem; font-weight: 700; cursor: pointer;
+}
+.error { color: var(--red); font-weight: 600; }
+
+.card {
+  background: #fff; border: 1px solid var(--line); border-radius: 1rem;
+  padding: 1.1rem 1.2rem; margin-top: 1rem;
+  box-shadow: 0 6px 18px rgba(59, 13, 79, .06);
+}
+.cards { display: grid; gap: .8rem; margin-top: .8rem; }
+.label { font-size: .8rem; letter-spacing: .08em; font-weight: 800; color: var(--purple); margin: 0; }
+.big { font-size: 2rem; font-weight: 800; margin: .2rem 0; }
+.state { font-weight: 700; }
+.timeline { list-style: none; padding: 0; margin: .6rem 0; }
+.timeline li { padding: .45rem 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 1rem; }
+.timeline li:last-child { border-bottom: none; }
+
+.pill {
+  display: inline-block; font-size: .8rem; font-weight: 800; border-radius: 999px;
+  padding: .2rem .7rem;
+}
+.pill.short { background: var(--green-tint); color: var(--green); }
+.pill.busy { background: var(--amber-tint); color: var(--amber); }
+.pill.review { background: var(--amber-tint); color: var(--amber); }
+.pill.resolved { background: var(--green-tint); color: var(--green); }
+
+.receipt {
+  background: var(--purple-tint); color: var(--purple-deep);
+  font-weight: 800; font-size: 1.2rem; padding: .8rem 1rem; border-radius: .7rem;
+}
+
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  background: #fff; border: 1px solid var(--line); border-radius: .8rem;
+  padding: .7rem 1rem; margin-bottom: .5rem; display: flex; gap: .7rem; align-items: center;
+}
+.checklist input { width: auto; accent-color: var(--purple); }
+
+footer {
+  max-width: 860px; margin: 0 auto; padding: 1.5rem 1rem 2.5rem;
+  color: var(--grey); font-size: .9rem; border-top: 1px solid var(--line);
+}
+footer a { color: var(--purple); }
